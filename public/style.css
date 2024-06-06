@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=MuseoModerno');
+@import url('https://fonts.googleapis.com/css?family=Mulish');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.container {
+    display: flex;
+}
+
+:root {
+    /*colors*/
+        /* base colors */
+        --white: #fff;
+        --black: #140B0B;
+        --darkGrey: #838383;
+        --lightGrey: #DADADA;
+        --teamBlue: #A4C8E9;
+        --teamGreen: #9fc798;
+        --teamYellow: #F3EA9C;
+
+        /* secondary colors */
+        --secondaryRed: #DE2B2B;
+        --secondaryLightGreen: #A6D49F;
+        --secondaryDarkGreen: #325740;
+        --secondaryLightBlue: #78A7D2;
+        --secondaryDarkBlue: #457AAA;
+        --secondaryLightYellow: #EBD55F;
+        --secondaryDarkYellow: #F9D727;
+
+    /*fonts*/
+      /*family*/
+      --headings: 'MuseoModerno', 'Helvetica', Sans-Serif;
+      --paragraphs: 'Mulish', 'Helvetica', Sans-Serif;
+
+      /*sizes*/
+      --h1: 2rem;
+      --h2: 1.5rem;
+      --p: 1rem;
+
+      /*padding*/
+      --padding-1: 1rem;
+      --padding-cards: 1.5rem;
+
+      /*width heights*/
+      --max-w: 100vw;
+      --max-h: 100vh;
+}
