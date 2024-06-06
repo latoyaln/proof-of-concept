@@ -59,6 +59,27 @@ const { employees } = await client.request(employee);
 response.render('index', { teams, employees});
 });
 
+app.get('/team/:slug', async function (req, res) {
+  const team = `
+    query TeamsPageQuery($slug: String!) {
+      teams(where: { slug: $slug }) {
+        name
+        employees {
+          name
+          age
+          role
+        }
+      }
+    }
+  `;
+
+  const { slug } = req.params;
+
+  const { teams} = await client.request(team, { slug });
+
+  res.render('teams', { teams});
+});
+
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000);
 
