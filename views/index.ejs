@@ -1,5 +1,29 @@
 <%- include('./partials/head') %>
 
-<%- include('./partials/sidebar') %>
+<div class="sidebar">
+    <%- include('./partials/sidebar') %>
+</div>
+
+
+<section class="overview">
+    <h1>Overview</h1>
+
+    <h2>Teams</h2>
+    <% teams.forEach(function(team) { %>
+        <a href="/teams/<%= team.slug %>">
+         <h3><%= team.name %></h3> 
+        </a>
+    <% }); %>
+
+    <h2>Employees</h2>
+    <% employees.forEach(function(employee) { %>
+
+         <img src="<%= employee.avatar.url %>" alt="employee avatar">
+         <p><%= employee.name %></p> 
+         <p class="role"><%= employee.role %></p> 
+         <p class="role">Team <%= employee.team.name %></p> 
+
+    <% }); %>
+</section>
 
 <%- include('./partials/foot') %>

@@ -29,7 +29,7 @@ const client = new AwesomeGraphQLClient({
 });
 
 app.get('/', async (request, response) => {
-  const query = `
+  const team = `
   { 
     teams {
       name
@@ -38,9 +38,25 @@ app.get('/', async (request, response) => {
   }
 `;
 
-const { teams } = await client.request(query);
+const employee = `
+{
+  employees {
+    name
+    age
+    role
+   avatar {
+     url
+   }
+   team{
+    name
+   }
+  }
+}`;
 
-response.render('index', { teams });
+const { teams } = await client.request(team);
+const { employees } = await client.request(employee);
+
+response.render('index', { teams, employees});
 });
 
 // Stel het poortnummer in waar express op moet gaan luisteren

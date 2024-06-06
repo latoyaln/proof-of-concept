@@ -52,7 +52,21 @@
       --navbar-width-min: 80px;
 }
 
-/* Nav Bar Styling */
+h1, h2, h3, h4{
+  font-family: var(--headings);
+}
+h1{
+  font-size: var(--h1);
+}
+h2{
+  font-size: var(--h2);
+}
+p{
+  font-family: var(--paragraphs);
+  font-size: var(--p);
+}
+
+/* Side Bar Styling */
 #nav-toggle:checked ~ #nav-header {
   width: calc(var(--navbar-width-min) - 16px);
 }
@@ -313,4 +327,19 @@ label[for="nav-footer-toggle"] {
   align-items: center;
   cursor: pointer;
   transition: transform .2s, opacity .2s;
+}
+
+/* page Styling */
+
+.sidebar {
+  float: left; 
+}
+
+.overview {
+  margin-left: var(--navbar-width); 
+  padding: var(--rem2);
+}
+
+.overview .role{
+  color: var(--darkGrey);
 }
