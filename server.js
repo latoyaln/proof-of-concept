@@ -64,10 +64,14 @@ app.get('/team/:slug', async function (req, res) {
     query TeamsPageQuery($slug: String!) {
       teams(where: { slug: $slug }) {
         name
+        slug
         employees {
           name
           age
           role
+          cupsOfCoffee
+          sickdays
+          vacationdays
         }
       }
     }
@@ -75,9 +79,9 @@ app.get('/team/:slug', async function (req, res) {
 
   const { slug } = req.params;
 
-  const { teams} = await client.request(team, { slug });
-
-  res.render('teams', { teams});
+  const {teams} = await client.request(team, { slug });
+  console.log({teams});
+  res.render('teams', {teams});
 });
 
 // Stel het poortnummer in waar express op moet gaan luisteren

@@ -1,10 +1,36 @@
 <%- include('./partials/head') %>
 
     <h1>Teams</h1>
-    <% teams.forEach(function(team) { %>
-        <a href="/teams/<%= team.slug %>">
-         <h3><%= team.name %></h3> 
+        <a href="/teams/<%= teams[0].slug %>">
+            <h3><%= teams[0].name %></h3> 
         </a>
-    <% }); %>
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [ <% teams[0].employees.forEach(function(employee) { %>'<%= employee.name %>', <% }); %>],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+      
 
 <%- include('./partials/foot') %>
