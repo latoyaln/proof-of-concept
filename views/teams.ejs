@@ -1,36 +1,49 @@
 <%- include('./partials/head') %>
 
-    <h1>Teams</h1>
-        <a href="/teams/<%= teams[0].slug %>">
-            <h3><%= teams[0].name %></h3> 
-        </a>
-    <div>
-        <canvas id="myChart"></canvas>
-      </div>
-      
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
-        const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: [ <% teams[0].employees.forEach(function(employee) { %>'<%= employee.name %>', <% }); %>],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
+<h1>Teams</h1>
+<% if (teams.length > 0) { %>
+  <a href="/team/<%= teams[0].slug %>">
+    <h3><%= teams[0].name %></h3>
+  </a>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.name %>', <% }); %>],
+        datasets: [{
+          label: 'cups of coffee',
+          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.cupsOfCoffee %>', <% }); %>],
+          borderWidth: 1
+        },
+        {
+          label: 'sickdays',
+          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.sickdays %>', <% }); %>],
+          borderWidth: 1
+        },
+        {
+          label: 'vacation days',
+          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.vacationdays %>', <% }); %>],
+          borderWidth: 1
+        }
+      ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
           }
-        });
-      </script>
-      
+        }
+      }
+    });
+  </script>
+<% } else { %>
+  <p>No teams available.</p>
+<% } %>
 
 <%- include('./partials/foot') %>
