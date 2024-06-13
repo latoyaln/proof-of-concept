@@ -6,7 +6,7 @@
     
         <h2>Teams</h2>
         <% teams.forEach(function(team) { %>
-            <a href="/team/<%= team.slug %>">
+            <a href="/team/<%= team.slug %>" class="team-link">
              <h3><%= team.name %></h3> 
             </a>
         <% }); %>

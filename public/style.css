@@ -353,3 +353,9 @@ body.dark .switch::before{
   .card .text-content {
     padding: 10px;
   }
+
+  .overview .team-link h3{
+    border-radius: 5px;
+    background-color: #140B0B;
+    margin: var(--rem1);
+  }
