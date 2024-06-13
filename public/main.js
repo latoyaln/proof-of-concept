@@ -1,10 +1,26 @@
-function getTeamColor(teamSlug) {
-    const colorMap = {
-      'Team Gecko': 'var(--teamGreen)',
-      'Team Cheetah': 'var(--teamYellow)',
-      'Team Pelican': 'var(--teamBlue)',
-      // Add more teams and colors as needed
-    };
+const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
 
-    return colorMap[teamSlug] || 'var(--teamGreen)'; // Default color fallback
-  }
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
