@@ -64,6 +64,9 @@ app.get('/team/:slug', async function (req, res) {
           cupsOfCoffee
           sickdays
           vacationdays
+          avatar {
+            url
+          }
         }
       }
     }

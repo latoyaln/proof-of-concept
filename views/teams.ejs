@@ -1,49 +1,71 @@
 <%- include('./partials/head') %>
-
-<h1>Teams</h1>
-<% if (teams.length > 0) { %>
-  <a href="/team/<%= teams[0].slug %>">
-    <h3><%= teams[0].name %></h3>
-  </a>
-  <div>
-    <canvas id="myChart"></canvas>
+<div class="sidebar">
+  <%- include('./partials/sidebar') %>
+</div>
+<section class="overview">
+  <h1>Teams</h1>
+  <% if (teams.length > 0) { %>
+    <a href="/team/<%= teams[0].slug %>">
+      <h3><%= teams[0].name %></h3>
+    </a>
+    <div class='stats'>
+      <div class="bar"> <canvas id="myChart"></canvas> </div>
+      <div class='child'>child 2</div>
+    </div>
+  
+  <% } else { %>
+    <p>No teams available.</p>
+  <% } %>
+  
+  <h2>Employees</h2>
+  <div class="card-grid">
+      <% teams[0].employees.forEach(function(employee) { %>
+          <article class="card">
+          <picture>
+              <img src="<%= employee.avatar.url %>" alt="employee avatar">
+          </picture>
+          <div class="text-content">
+          <p><%= employee.name %></p> 
+          <p class="role"><%= employee.role %></p> 
+          </div>
+          </article>
+  
+     <% }); %>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('myChart');
+</section>
 
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.name %>', <% }); %>],
-        datasets: [{
-          label: 'cups of coffee',
-          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.cupsOfCoffee %>', <% }); %>],
-          borderWidth: 1
-        },
-        {
-          label: 'sickdays',
-          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.sickdays %>', <% }); %>],
-          borderWidth: 1
-        },
-        {
-          label: 'vacation days',
-          data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.vacationdays %>', <% }); %>],
-          borderWidth: 1
-        }
-      ]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  </script>
-<% } else { %>
-  <p>No teams available.</p>
-<% } %>
 
 <%- include('./partials/foot') %>
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.name %>', <% }); %>],
+      datasets: [{
+        label: 'cups of coffee',
+        data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.cupsOfCoffee %>', <% }); %>],
+        borderWidth: 1
+      },
+      {
+        label: 'sickdays',
+        data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.sickdays %>', <% }); %>],
+        borderWidth: 1
+      },
+      {
+        label: 'vacation days',
+        data: [<% teams[0].employees.forEach(function(employee) { %>'<%= employee.vacationdays %>', <% }); %>],
+        borderWidth: 1
+      }
+    ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
