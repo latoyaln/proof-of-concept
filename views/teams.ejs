@@ -21,7 +21,7 @@
       <% teams[0].employees.forEach(function(employee) { %>
           <article class="card">
           <picture>
-              <img src="<%= employee.avatar.url %>" alt="employee avatar">
+              <img src="<%= employee.avatar.url %>" alt="employee avatar" loading="lazy">
           </picture>
           <div class="text-content">
           <p><%= employee.name %></p> 
