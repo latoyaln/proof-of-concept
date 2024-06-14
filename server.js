@@ -25,6 +25,9 @@ app.get('/', async (request, response) => {
       teams {
         name
         slug
+        colors {
+          css
+        }
       }
     }
   `;
@@ -41,14 +44,29 @@ app.get('/', async (request, response) => {
         team {
           name
         }
+        
       }
     }
   `;
-
+  const projectsQuery =  `
+  { 
+  projects {
+    name
+    team {
+      employees {
+        name
+      }
+    }
+    description
+  }
+}`;
+    
+  
   const { teams } = await client.request(teamQuery);
   const { employees } = await client.request(employeeQuery);
+  const { projects } = await client.request(projectsQuery);
 
-  response.render('index', { teams, employees });
+  response.render('index', { teams, employees, projects });
 });
 
 app.get('/team/:slug', async function (req, res) {
@@ -57,6 +75,9 @@ app.get('/team/:slug', async function (req, res) {
       teams(where: { slug: $slug }) {
         name
         slug
+        colors {
+          css
+        }
         employees {
           name
           age
@@ -68,6 +89,7 @@ app.get('/team/:slug', async function (req, res) {
             url
           }
         }
+        
       }
     }
   `;

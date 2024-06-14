@@ -26,6 +26,19 @@
            
                <% }); %>
             </div>
+            <h2>Projects</h2>
+            <div class="card-grid">
+                <% projects.forEach(function(project) { %>
+                    <article class="card">
+                        <%= project.name %>
+                    <div class="text-content">
+                    <p class="role"><%= project.description %></p> 
+                    <p class="role">Team <%= project.team.employees.name %></p>
+                    </div>
+                    </article>
+           
+               <% }); %>
+            </div>
     </section>
 
 <%- include('./partials/foot') %>
