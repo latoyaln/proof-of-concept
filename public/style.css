@@ -354,8 +354,12 @@ body.dark .switch::before{
     padding: 10px;
   }
 
-  .overview .team-link h3{
-    border-radius: 5px;
-    background-color: #140B0B;
-    margin: var(--rem1);
+  .team-link {
+    text-decoration: none; /* Remove default link styling */
   }
+  
+  .overview .team-link h3 {
+    margin: 0;
+    color: inherit;
+  }
+  

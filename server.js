@@ -27,6 +27,7 @@ app.get('/', async (request, response) => {
         slug
         colors {
           css
+          hex
         }
       }
     }
@@ -77,6 +78,7 @@ app.get('/team/:slug', async function (req, res) {
         slug
         colors {
           css
+          hex
         }
         employees {
           name
