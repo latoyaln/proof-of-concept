@@ -88,7 +88,7 @@ try {
 }
 });
 
-app.get('/team/:slug', async function (req, res) {
+app.get('/team/:slug', async (request, response) => {
   const teamQuery = `
     query TeamsPageQuery($slug: String!) {
       teams(where: { slug: $slug }) {
@@ -114,18 +114,18 @@ app.get('/team/:slug', async function (req, res) {
     }
   `;
 
-  const { slug } = req.params;
+  const { slug } = request.params;
 
   try {
     const { teams } = await client.request(teamQuery, { slug });
 
     if (teams.length > 0) {
-      res.render('teams', { teams });
+      response.render('teams', { teams });
     } else {
-      res.render('teams', { teams: [] });
+      response.render('teams', { teams: [] });
     }
   } catch (error) {
-    res.status(500).send('Internal Server Error');
+    response.status(500).send('Internal Server Error');
   }
 });
 
