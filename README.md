@@ -18,7 +18,7 @@
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+In deze repository ben ik gaan werken in opdracht van UNC INC. Het bevat een dashboard ontwikkelen waarin je bijvoorbeeld ziektedagen kan zien van mensen. Ook ziekteverzuim, omzetverwachting, aanwezigheid van medewerkers. Dit aan de hand van aangeleverde data.
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
