@@ -52,6 +52,7 @@ Ik heb een overview gemaakt hieruit kan je op een specifiek team klikken. Dan ko
 ## Bronnen
 
 [Apollo Graph](https://www.apollographql.com/docs/apollo-server)
+
 [Medium](https://medium.com)
 
 ## Licentie
