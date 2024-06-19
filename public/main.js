@@ -1,3 +1,4 @@
+// script.js
 
 // darkmode
 const body = document.querySelector('body'),
@@ -6,18 +7,18 @@ const body = document.querySelector('body'),
       modeSwitch = body.querySelector(".toggle-switch"),
       modeText = body.querySelector(".mode-text");
 
+      body.classList.add('js-enabled');
 
-toggle.addEventListener("click" , () =>{
+toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
-})
+});
 
-modeSwitch.addEventListener("click" , () =>{
+modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
     
-    if(body.classList.contains("dark")){
+    if (body.classList.contains("dark")) {
         modeText.innerText = "Light mode";
-    }else{
+    } else {
         modeText.innerText = "Dark mode";
-        
     }
 });

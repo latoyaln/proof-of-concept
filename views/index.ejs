@@ -11,21 +11,31 @@
               </a>
         <% }); %>
         <h2>Employees</h2>
+        <form action="/" method="GET" class="search-form">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" placeholder="Enter employee name or team...">
+            <button type="submit">Search</button>
+          </form>
+          
+        <% if (employees.length > 0) { %>
             <div class="card-grid">
-                <% employees.forEach(function(employee) { %>
-                    <article class="card">
-                    <picture>
-                        <img src="<%= employee.avatar.url %>" alt="employee avatar" loading="lazy">
-                    </picture>
-                    <div class="text-content">
+              <% employees.forEach(function(employee) { %>
+                <article class="card">
+                  <picture>
+                    <img src="<%= employee.avatar.url %>" alt="employee avatar" loading="lazy">
+                  </picture>
+                  <div class="text-content">
                     <p><%= employee.name %></p> 
                     <p class="role"><%= employee.role %></p> 
                     <p class="role">Team <%= employee.team.name %></p> 
-                    </div>
-                    </article>
-           
-               <% }); %>
+                  </div>
+                </article>
+              <% }); %>
             </div>
+          <% } else { %>
+            <p>No employees found.</p>
+          <% } %>
+          
             <h2>Projects</h2>
             <div class="card-grid">
                 <% projects.forEach(function(project) { %>

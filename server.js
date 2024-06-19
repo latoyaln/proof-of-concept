@@ -53,21 +53,39 @@ app.get('/', async (request, response) => {
   { 
   projects {
     name
+    description
     team {
       employees {
         name
       }
     }
-    description
   }
 }`;
     
   
+try {
   const { teams } = await client.request(teamQuery);
   const { employees } = await client.request(employeeQuery);
   const { projects } = await client.request(projectsQuery);
 
-  response.render('index', { teams, employees, projects });
+  let filteredEmployees = employees;
+  const { search } = request.query;
+
+  if (search) {
+    const searchTerm = search.toLowerCase().trim();
+    filteredEmployees = employees.filter(employee => {
+      return (
+        employee.name.toLowerCase().includes(searchTerm) ||
+        employee.team.name.toLowerCase().includes(searchTerm)
+      );
+    });
+  }
+
+  response.render('index', { teams, employees: filteredEmployees, projects, searchTerm: search });
+} catch (error) {
+  console.error('Error fetching data:', error);
+  response.status(500).send('Internal Server Error');
+}
 });
 
 app.get('/team/:slug', async function (req, res) {

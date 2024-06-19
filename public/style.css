@@ -93,10 +93,21 @@ body{
 body.dark{
   --body-color: var(--black);
   --sidebar-color: var(--secondaryDarkGreen);
-  --primary-color: var(--black);
+  --primary-color:#0000;
   --primary-color-light: var(--lightGrey);
   --toggle-color: var(--white);
   --text-color: var(--white);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: var(--white);
+}
+
+body.dark .text-content {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* ===== Sidebar ===== */
@@ -354,12 +365,56 @@ body.dark .switch::before{
     padding: 10px;
   }
 
-  .team-link {
-    text-decoration: none; /* Remove default link styling */
+body:not(.js-enabled) .mode {
+  display: none; /* Hide dark mode option when js-enabled class is not present */
+}
+/* Search Form */
+.search-form {
+  font-family: var(--paragraphs);
+  margin-bottom: 20px;
+}
+
+.search-form label {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.search-form button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  background-color: var(--secondaryDarkBlue);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: var(--secondaryLightBlue);
+}
+
+.team-link h3{
+background-color: var(--secondaryDarkBlue);
+padding: 1rem;
+margin-bottom: 1rem;
+color: var(--white);
+width: 10rem;
+}
+
+.team-link{
+  text-decoration: none;
+}
+
+.team-link h3:hover{
+  background-color: var(--secondaryLightBlue);
+
   }
-  
-  .overview .team-link h3 {
-    margin: 0;
-    color: inherit;
-  }
-  
