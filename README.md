@@ -18,7 +18,7 @@ In deze repository ben ik gaan werken in opdracht van UNC INC. Het bevat een das
 ![smartmockups_lxofu3nl](https://github.com/latoyaln/proof-of-concept/assets/76912011/fc8e2ab8-ea9a-41de-8306-e1f4e83fde93)
 
 
-<!-- Voeg een link toe naar Github Pages 🌐-->
+[Live Link](https://proof-of-concept-kocw.onrender.com)
 
 ## Gebruik
 
