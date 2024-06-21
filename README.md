@@ -14,7 +14,10 @@ UNC INC maken Frontend/webapplicaties, apps, backend, CMS, API ontwikkeling. In 
 
 ## Beschrijving
 In deze repository ben ik gaan werken in opdracht van UNC INC. Het bevat een dashboard ontwikkelen waarin je bijvoorbeeld ziektedagen kan zien van mensen. Ook ziekteverzuim, omzetverwachting, aanwezigheid van medewerkers. Dit aan de hand van aangeleverde data. Verder kan je ook met de sidebar darkmode aan en uitzetten. De doelgroep zijn medewerkers en de teams binnen Unc Inc, hiermee kunnen zij per medewerker verschillende statistieken zien.
-<!-- Voeg een mooie poster visual toe 📸 -->
+
+![smartmockups_lxofu3nl](https://github.com/latoyaln/proof-of-concept/assets/76912011/fc8e2ab8-ea9a-41de-8306-e1f4e83fde93)
+
+
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Gebruik
